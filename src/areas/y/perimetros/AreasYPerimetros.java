@@ -7,14 +7,7 @@ package areas.y.perimetros;
  */
 public class AreasYPerimetros {
     public static void main(String[] args) {
-        
-        //Se inicia el programa llamando al menu
-        
-        Menu op =  new Menu();
-        op.menu();
-        System.out.printf("Fin del Programa \n");
-        
-        
+        Menu Menu = new Menu();
     }// fin del main
     
 }//fin clase AreasYPerimetros

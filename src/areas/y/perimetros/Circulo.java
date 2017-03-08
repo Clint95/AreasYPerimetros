@@ -6,46 +6,59 @@ package areas.y.perimetros;
  * @verion 1.0.0
  * @since Areas y Perimetros 1.0.0
  */
-import java.util.Scanner;
 import java.lang.Math ;
-public class Circulo {    
-    public float radio=0;
-    public float area1=0;
-    public float perimetro1=0;
-    Scanner entrada=new Scanner(System.in);
+public class Circulo {
     /**
-    * @return retorna el radio para poder procesarlo   
+    *atributos que alojan radio, perimetro y area
     */
-    public float RadioIngresado(){
-        System.out.printf("Ingrese el radio del circulo \n");
-        this.radio=entrada.nextFloat();
-        return radio;       
+    private float radio;
+    private float perimetro;
+    private float area;
+    
+    /**
+    *Constructor de la clase que inicializa la variable radio. 
+    * @param radio    
+    */
+    public Circulo(float radio) {
+        this.radio = radio;
+    }
+    
+    /**
+    * modifica la variable radio
+    * @param radio
+    */
+    public void setRadio(float radio) {
+        this.radio = radio;
     }
     /**
-     * Método para calcular el área del círculo  pasándo como parámetro el radio (r)
-     * @param r    
-     * @return area1 retorna el area del circulo 
+    * retorna la variable radio
+    * @return 
     */
-    public float calculaArea(float r){
-        this.area1 =(float)Math.PI*(float)Math.pow(r, 2);
-        return area1;       
-    }        
+    public float getRadio() {
+        return radio;
+    }
+    
     /**
-     * metodo que calcula el perimetro pasando como parametro el radio (r)
-     * @param r    
-     * @return     
+    *retorna el area del circulo 
+    * @return 
     */
-    public float calcularPerimetro(float r){
-        this.perimetro1 = 2*(float)Math.PI*r; 
-        return perimetro1;       
+    private double ObtenerArea(){
+         area =(float)(Math.PI*(radio*radio));
+         return area;
     }
     /**
-     * Metodo que imprime los resultados en pantalla
-     * @param area    
-     * @param perimetro    
+    * retorna el perimetro del circulo 
+    *@return 
     */
-    public void Resultado(float area, float perimetro){
-        System.out.printf("El area del circulo es %.2f cm2 \n", area1);
-        System.out.printf("El perimetro del circulo es %.2f  \n", perimetro1);
+    private double ObtenerPerimetro(){
+        perimetro=(float)(Math.PI*(2*radio));
+        return perimetro;
     }
-}//fin clase Circulo
+    /**
+    * Muestra los resultados de la clase
+    */
+    public void darResultados() {
+            System.out.println("Area del circulo : " + ObtenerArea());
+            System.out.println("Perimetro del circulo: " + ObtenerPerimetro());           
+    }
+}

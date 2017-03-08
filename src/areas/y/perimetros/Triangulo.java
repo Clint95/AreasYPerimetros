@@ -5,79 +5,203 @@ package areas.y.perimetros;
  * @verion 1.0.0
  * @since Areas y Perimetros 1.0.0
  */
-import java.lang.Math ;
-import java.util.Scanner;
 public class Triangulo {
     
-    public float base=0;
-    public float altura=0;
-    public float area1=0;
-    public float perimetro1=0;
-    public float p1=0,p2=0,p3=0,p4=0,p5=0,p6=0;
-    public float a1,a2=0,c1=0,c2=0,b1=0,b2=0;
+    /**
+     * Atributo que contiene la cordenada x1 y1
+     */
+    private Punto punto1;
     
-    Scanner entrada=new Scanner(System.in);
     /**
-    *este metodo captura las coordenadas digitadas por el usuario para poder calcular
-     el area y retornarla
-    * @return area1
-    */
-    public float areaCoordenadas(){
-        System.out.printf("\nDigite las coordenadas de las vertices");
-        System.out.printf("\nDigite la coordenada A1 : ");
-        this.a1=entrada.nextFloat();
-        System.out.printf("\nDigite la coordenada A2 : ");
-        this.a2=entrada.nextFloat();
-        System.out.printf("\nDigite la coordenada B1 : ");
-        this.b1=entrada.nextFloat();
-        System.out.printf("\nDigite la coordenada B1 : ");
-        this.b2=entrada.nextFloat();
-        System.out.printf("\nDigite la coordenada C1 : ");
-        this.c1=entrada.nextFloat();
-        System.out.printf("\nDigite la coordenada C2 : ");
-        this.c2=entrada.nextFloat();
-        area1=((a1*(c2-b2)+c1*(b2-a2)+b1*(a2-c2))/2);
-        return area1;
+     * Atributo que contiene la cordenada x2 y2
+     */    
+    private Punto punto2;
+
+    /**
+     * Atributo que contiene la cordenada x3 y3
+     */        
+    private Punto punto3;
+    
+    
+    /**
+     * Guarda el perimetro del triangulo
+     */
+    private double perimetro;
+
+    /**
+     * Constuctor de la clse que inicializa las variables
+     * @param punto1
+     * @param punto2
+     * @param punto3 
+     */
+    public Triangulo(Punto punto1, Punto punto2, Punto punto3) {
+        this.punto1 = punto1;
+        this.punto2 = punto2;
+        this.punto3 = punto3;
+    }
+    
+    /**
+     * Metodo que da los resultados del triangulo
+     */
+    public void darResultados() {
+        if(isTriangulo()) {
+            System.out.println("Lado1: " + darLado1());
+            System.out.println("Lado2: " + darLado2());
+            System.out.println("Lado3: " + darLado3());
+            System.out.println("Perimetro: " + darPermietro());
+            System.out.println("Area: " + darArea());
+            System.out.println("Tipo de Triangulo: "+ TipoTriangulo());
+        } else {
+            System.out.println("No es un triangulo");
+        }    
+    }
+    
+    /**
+     * Retorna verdadero si es un triangulo Falso contrario
+     * @return 
+     */
+    private boolean isTriangulo() {
+        if((Math.abs(darLado1()-darLado3())<darLado2())&&(darLado2()<(darLado1()+darLado3()))){
+            System.out.println("Si Forma un triangulo");
+            }else{
+            System.out.println("No Forma un triangulo");
         }
+        return true;
+    }
+    
     /**
-    * este metodo calcula el perimetro del triangulo
-    * @return    retorna el perimetro del triangulo
-    */
-    public float perimeCoordenadas(){
+     * Retorma longitud de lado AB
+     * @return 
+     */
+    private double darLado1(){
+        double auxiliarX = Math.pow(punto2.getX() - punto1.getX(), 2);
+        double auxiliarY = Math.pow(punto2.getY() - punto1.getY(), 2);
         
-        this.p1 = (float) Math.pow((b1-a1),2);
-        this.p2 = (float) Math.pow((b2-a2),2);
-        this.p3 = (float) Math.pow((c1-b1),2);
-        this.p4 = (float) Math.pow((c2-b2),2);
-        this.p5 = (float) Math.pow((c1-a1),2);
-        this.p6 = (float) Math.pow((c2-a2),2);
-        this.perimetro1= (float)((Math.sqrt(p1+p2))+(Math.sqrt(p3+p4)+(Math.sqrt(p5+p6))));
-        return perimetro1;
-    }    
+        double lado = Math.sqrt(auxiliarX +  auxiliarY);
+        return lado;
+    }
+    
     /**
-    *este metodo evalua si el triangulo que se ingreso es isosceles,equilatero o escaleno.
-    */
-    public void TipoTriangulo(){
-        float lado1=(float)(Math.sqrt(p1+p2));
-        float lado2=(float)(Math.sqrt(p3+p4));
-        float lado3=(float)(Math.sqrt(p5+p6));
-        if(lado1==lado2&&lado1==lado3){
-            System.out.printf("\n es un triangulo equilatero");          
-        }
-            if((lado1==lado2&&lado1!=lado3)||(lado2==lado3&&lado2!=lado1)||(lado3==lado1&&lado3!=lado2)){
-                System.out.printf("\nes un triangulo isosceles");                            
-            }
-                if(lado1!=lado2&&lado1!=lado3&&lado2!=lado3){
-                    System.out.printf("\nes un triangulo escaleno");                   
+     * Retorma longitud de lado BC
+     * @return 
+     */
+    private double darLado2(){
+        double auxiliarX = Math.pow(punto3.getX() - punto2.getX(), 2);
+        double auxiliarY = Math.pow(punto3.getY() - punto2.getY(), 2);
+        
+        double lado = Math.sqrt(auxiliarX +  auxiliarY);
+        return lado;
+    }
+    
+    /**
+     * Retorma longitud de lado CA
+     * @return 
+     */
+    private double darLado3(){
+        double auxiliarX = Math.pow(punto1.getX() - punto3.getX(), 2);
+        double auxiliarY = Math.pow(punto1.getY() - punto3.getY(), 2);
+        
+        double lado = Math.sqrt(auxiliarX +  auxiliarY);
+        return lado;
+    }
+    
+    /**
+     * 
+     * Metodo que retorna el perimetro del triangulo
+     * @return Perimetro
+     */
+    private double darPermietro() {        
+        this.perimetro =  darLado1() + darLado2() + darLado3();
+        return this.perimetro;
+    }
+    
+    /**
+     * Metodo que retorna el area de un trianguo
+     * @return  Area
+     */
+    private double darArea() {
+        double semiperimetro = this.perimetro / 2;
+        double lado1 = semiperimetro - darLado1();
+        double lado2 = semiperimetro - darLado2();
+        double lado3 = semiperimetro - darLado3();
+        
+        double area =  Math.sqrt((semiperimetro * lado1 * lado2 * lado3));
+        return area;
+    }
+    
+    /**
+     * Metodo que retorna el tipo de triangulo
+     * @return Tipo de triangulo
+     */
+    public String TipoTriangulo() {
+            String salida=" ";
+            double lado1=  darLado1();
+            double lado2 = darLado2();
+            double lado3 = darLado3();
+                if(lado1==lado2&&lado1==lado3){
+                System.out.println("equilatero"); 
+                salida="equilatero";
                 }
+                else {
+                if((lado1==lado2&&lado1!=lado3)||(lado2==lado3&&lado2!=lado1)||(lado3==lado1&&lado3!=lado2)){
+                System.out.println("isosceles");
+                salida="isosceles";
+                }
+                else{ 
+                if(lado1!=lado2&&lado1!=lado3&&lado2!=lado3){
+                salida="escaleno";
+                System.out.println("escaleno");
+                }
+                }
+                }
+                return salida;
     }
     /**
-     * este metodo imprime los resultados obtenidos en pantalla
-     * @param area1   el area que se calculo en los metodos anteriores
-     * @param perimetro1    el perimetro que se calculo en los metodos anteriores
-    */
-    public void Resultado(float area1, float perimetro1){
-         System.out.printf("El area del triangulo es %.2f  \n", area1);
-         System.out.printf("El perimetro del triangulo es %.2f  \n", perimetro1);
+     * Retorna la cordenada x1 y1
+     * @return 
+     */
+    public Punto getPunto1() {
+        return punto1;
     }
+
+    /**
+     * Modifica la cordenada x1 y1
+     * @param punto1 
+     */
+    public void setPunto1(Punto punto1) {
+        this.punto1 = punto1;
+    }
+
+    /**
+     * Retorna la cordenada x2 y2
+     * @return 
+     */    
+    public Punto getPunto2() {
+        return punto2;
+    }
+
+    /**
+     * Modifica la cordenada x2 y2
+     * @param punto1 
+     */    
+    public void setPunto2(Punto punto2) {
+        this.punto2 = punto2;
+    }
+
+    /**
+     * Retorna la cordenada x3 y3
+     * @return 
+     */    
+    public Punto getPunto3() {
+        return punto3;
+    }
+
+    /**
+     * Modifica la cordenada x3 y3
+     * @param punto1 
+     */    
+    public void setPunto3(Punto punto3) {
+        this.punto3 = punto3;
+    }
+   
 }
