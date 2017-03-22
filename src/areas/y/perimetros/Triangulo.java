@@ -2,8 +2,8 @@ package areas.y.perimetros;
 /**
  * esta clase contiene los metodos para calcular el area y el perimetro de un triangulo
  * @author Juan Ricardo Rodriguez Campos
- * @verion 1.0.0
- * @since Areas y Perimetros 1.0.0
+ * @verion 2.0.0
+ * @since Areas y Perimetros 2.0.0
  */
 public class Triangulo extends Figura {
 

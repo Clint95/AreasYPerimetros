@@ -2,8 +2,8 @@ package areas.y.perimetros;
 /**
  * la clase Punto captura las coordenadas que se necesitan para calcular las areas y perimetros
  * @author Juan Ricardo Rodriguez Campos
- * @verion 1.0.0
- * @since Areas y Perimetros 1.0.0
+ * @verion 2.0.0
+ * @since Areas y Perimetros 2.0.0
  */
 public class Punto {
     

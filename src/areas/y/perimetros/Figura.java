@@ -1,21 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package areas.y.perimetros;
 
 /**
- *
- * @author Clint
+ * clase madre que contiene los atributos y meodos geneales del proyecto
+ * @author Juan Ricardo Rodriguez Campos
+ * @verion 2.0.0
+ * @since Areas y Perimetros 2.0.0
  */
 public class Figura {
    
     
-    
+    /**atributos area y perimetro
+    *
+    */
     public double area;
     public double  perimetro;
 
+      /**
+     * Constuctor de la clse que inicializa las variables
+     * @param punto1
+     * @param punto2
+     * @param punto3 
+     */
+    public Figura(Punto punto1, Punto punto2, Punto punto3) {
+        this.punto1 = punto1;
+        this.punto2 = punto2;
+        this.punto3 = punto3;
+        
+    }
+    
+    public Figura(){
+        
+    }
+    /** gets y sets de los atributos de la clase
+    *
+    */
     public double getArea() {
         return area;
     }
@@ -35,22 +54,6 @@ public class Figura {
     public Figura(double area, double perimetro) {
         this.area = area;
         this.perimetro = perimetro;
-    }
-     /**
-     * Constuctor de la clse que inicializa las variables
-     * @param punto1
-     * @param punto2
-     * @param punto3 
-     */
-    public Figura(Punto punto1, Punto punto2, Punto punto3) {
-        this.punto1 = punto1;
-        this.punto2 = punto2;
-        this.punto3 = punto3;
-        
-    }
-    
-    public Figura(){
-        
     }
     /**
      * Atributo que contiene la cordenada x1 y1
@@ -92,8 +95,10 @@ public class Figura {
     public void setPunto3(Punto punto3) {
         this.punto3 = punto3;
     }
-
-    
+    /** retorna el lado 1
+    *
+    * @return 
+    */
     public double darLado1(){
         
         double auxiliarX = Math.pow(punto2.getX() - punto1.getX(), 2);
@@ -126,17 +131,24 @@ public class Figura {
         double lado = Math.sqrt(auxiliarX +  auxiliarY);
         return lado;
     } 
-    
+    /** metodo que retorna el area
+    * @return 
+    */
     public double darArea(){
         
         return area;
     }
-    
+    /**
+    *metodo que retorna el perimetro
+    * @return 
+    */
     public double darPerimetro(){
         
         return perimetro;
     }
-    
+    /**
+    * metodo que muestra los datos
+    */
     public void darResultados(){
         
     }

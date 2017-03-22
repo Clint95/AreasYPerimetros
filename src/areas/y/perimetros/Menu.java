@@ -3,8 +3,8 @@ import java.util.Scanner;
 /**
  * esta clase contiene el menu del programa y este es lo primero que ve el usuario
  * @author Juan Ricardo Rodriguez Campos
- * @verion 1.0.0
- * @since Areas y Perimetros 1.0.0
+ * @verion 2.0.0
+ * @since Areas y Perimetros 2.0.0
  */
 import java.util.Scanner;
 

@@ -3,16 +3,19 @@ package areas.y.perimetros;
  *la clase circulo contiene los metodos necesarios para calcular el perimetro
    y el area de un circulo
  * @author Juan Ricardo Rodriguez Campos
- * @verion 1.0.0
- * @since Areas y Perimetros 1.0.0
+ * @verion 2.0.0
+ * @since Areas y Perimetros 2.0.0
  */
+ 
 import java.lang.Math ;
 public class Circulo extends Figura{
 
     /**
     *Constructor de la clase que inicializa la variable radio. 
-    * @param 
-    */
+     * @param punto1
+     * @param punto2
+     * @param punto3    
+     */
     public Circulo(Punto punto1, Punto punto2, Punto punto3){
         super(punto1,punto2,punto3);
     }
