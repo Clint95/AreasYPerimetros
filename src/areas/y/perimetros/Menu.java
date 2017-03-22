@@ -8,24 +8,26 @@ import java.util.Scanner;
  */
 import java.util.Scanner;
 
-public class Menu {
-
+public class Menu extends Figura {
+    
     private Scanner teclado;
     
     /**
      * Constructor de la clase
      */
-    public Menu() {
-        teclado = new Scanner(System.in);        
-        mensajeBienvenida();
-        iniciar();
-    }
     
+    public Menu(){
+            teclado = new Scanner(System.in); 
+            
+            mensajeBienvenida();
+            iniciar();
+    }
     /**
      * Metodo que da la bienvenida al programa
      */
-    private void mensajeBienvenida(){
-        System.out.println("------BIENVENIDO-----");
+    public void mensajeBienvenida(){
+        System.out.println("------------BIENVENIDO----------");
+        System.out.println("--Calculadora de Areas y Perimetros--- ");
     }
     
     /**
@@ -78,6 +80,7 @@ public class Menu {
         System.out.println("Digite lado y3");
         y = teclado.nextDouble();
         Punto punto3 = new Punto(x, y);
+        Figura figura =new Figura(punto1,punto2,punto3);
         Triangulo triangulo = new Triangulo(punto1, punto2, punto3);
         triangulo.darResultados();        
     }
@@ -91,33 +94,47 @@ public class Menu {
         x = teclado.nextDouble();
         System.out.println("Digite lado y1");
         y = teclado.nextDouble();
-        Punto punto1 = new Punto(x, y);
+        Punto punto1 = new Punto(x,y);
         System.out.println("Digite lado x2");
         x = teclado.nextDouble();
         System.out.println("Digite lado y2");
         y = teclado.nextDouble();
-        Punto punto2 = new Punto(x, y);
+        Punto punto2 = new Punto(x,y);
         System.out.println("Digite lado x3");
         x = teclado.nextDouble();
         System.out.println("Digite lado y3");
         y = teclado.nextDouble();
-        Punto punto3 = new Punto(x, y);
+        Punto punto3 = new Punto(x,y);
         System.out.println("Digite lado x4");
         x = teclado.nextDouble();
         System.out.println("Digite lado y4");
         y = teclado.nextDouble();
-        Punto punto4 = new Punto(x, y);
-        Rectangulo rectangulo = new Rectangulo(punto1, punto2, punto3,punto4);
-        rectangulo.darResultados();        
+        Punto punto4 = new Punto(x,y);
+        Figura figura =new Figura(punto1,punto2,punto3);
+        Rectangulo rectangulo = new Rectangulo(punto1,punto2,punto3);
+        rectangulo.darResultados();
+        
+       
     }
     /**
     *Metodo que toma el radio de un circulo y llama al objeto para realizar las operaciones
     */
     private void iniciarCirculo(){
-        double radio;
-        System.out.println("Digite el radio del circulo");
-        radio = teclado.nextDouble();
-        Circulo Circulo = new Circulo((float)radio);
+   
+        double x, y;
+        System.out.println("Digite Primero la coordenada que es el foco del circulo");
+        System.out.println("Digite lado x1");
+        x = teclado.nextDouble();
+        System.out.println("Digite lado y1");
+        y = teclado.nextDouble();
+        Punto punto1 = new Punto(x,y);
+        System.out.println("Digite lado x2");
+        x = teclado.nextDouble();
+        System.out.println("Digite lado y2");
+        y = teclado.nextDouble();
+        Punto punto2 = new Punto(x,y);
+        Figura figura =new Figura(punto1,punto2,null);
+        Circulo Circulo = new Circulo(punto1,punto2,null);
         Circulo.darResultados();
         
     }

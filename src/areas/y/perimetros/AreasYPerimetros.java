@@ -5,8 +5,10 @@ package areas.y.perimetros;
  * @verion 1.0.0
  * @since Areas y Perimetros 1.0.0
  */
-public class AreasYPerimetros {
+public class AreasYPerimetros extends Figura {
     public static void main(String[] args) {
+        
+    
         Menu Menu = new Menu();
     }// fin del main
     

@@ -7,58 +7,42 @@ package areas.y.perimetros;
  * @since Areas y Perimetros 1.0.0
  */
 import java.lang.Math ;
-public class Circulo {
-    /**
-    *atributos que alojan radio, perimetro y area
-    */
-    private float radio;
-    private float perimetro;
-    private float area;
-    
+public class Circulo extends Figura{
+
     /**
     *Constructor de la clase que inicializa la variable radio. 
-    * @param radio    
+    * @param 
     */
-    public Circulo(float radio) {
-        this.radio = radio;
+    public Circulo(Punto punto1, Punto punto2, Punto punto3){
+        super(punto1,punto2,punto3);
     }
-    
-    /**
-    * modifica la variable radio
-    * @param radio
-    */
-    public void setRadio(float radio) {
-        this.radio = radio;
-    }
-    /**
-    * retorna la variable radio
-    * @return 
-    */
-    public float getRadio() {
-        return radio;
-    }
-    
-    /**
+     
+   /**
     *retorna el area del circulo 
     * @return 
     */
-    private double ObtenerArea(){
-         area =(float)(Math.PI*(radio*radio));
+    @Override
+    public double darArea(){
+        super.darLado1();
+         area =(float)(Math.PI*((darLado1())*(darLado1())));
          return area;
     }
     /**
     * retorna el perimetro del circulo 
     *@return 
     */
-    private double ObtenerPerimetro(){
-        perimetro=(float)(Math.PI*(2*radio));
+    @Override
+    public double darPerimetro(){
+        super.darLado1();
+        perimetro=(float)(Math.PI*(2*darLado1()));
         return perimetro;
     }
     /**
     * Muestra los resultados de la clase
     */
+    @Override
     public void darResultados() {
-            System.out.println("Area del circulo : " + ObtenerArea());
-            System.out.println("Perimetro del circulo: " + ObtenerPerimetro());           
+            System.out.println("Area del circulo : " + darArea());
+            System.out.println("Perimetro del circulo: " + darPerimetro());           
     }
 }
